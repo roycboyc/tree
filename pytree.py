@@ -34,24 +34,25 @@ def tree_print(path, shape, count):
             count['directories'] += 1
             tree_print(file_name, shape + next_shape, count)
         # if not a dir, just count files for final printout
-		else:   
-            count['files'] += 1
-                
+        else:   
+        	count['files'] += 1
+    
 if __name__ == '__main__':
     count = {'directories': 0, 'files': 0}
     
-    if len(sus.argv>2):
-    	print ('invalid path')
+    if len(sys.argv > 2):
+    	print('invalid path')
     	sys.exit(0)
     elif len(sys.argv == 2):
 		sys_path = sys.argv[1]
     elif len(sys.argv == 1):
     	sys_path = '.'
     elif len(sys.argv == 0):
-    	print ('empty path')
+    	print('empty path')
+    	sys.exit(0)
 
     print (sys_path)
     tree_print(sys_path, "", count)
 
-    print ('')    
+    print ('')
     print(str(count['directories']), ' directories, ', str(count['files']), ' files')
