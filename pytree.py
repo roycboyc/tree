@@ -13,8 +13,8 @@ def tree_print(path, shape, count):
     dir_list = os.listdir(path)
 
     # remove and sort
-    #dir_list = [dir_list for dir_list in dir_list if dir_list[0] != '.']
-    dir_list = sorted(dir_list) #, key = lambda x: x.basename.lower())  
+    # dir_list = [dir_list for dir_list in dir_list if dir_list[0] != '.']
+    dir_list = sorted(dir_list)  # , key = lambda x: x.basename.lower())
 
     # iterate over all of the files and directories
     for file_name in dir_list:
@@ -34,17 +34,17 @@ def tree_print(path, shape, count):
             count['directories'] = count['directories'] + 1
             tree_print(file_name, shape + next_shape, count)
         # if not a dir, just count files for final printout
-        else:   
+        else:
         	count['files'] = count['files'] + 1
-    
+
 if __name__ == '__main__':
     count = {'directories': 0, 'files': 0}
-    
+
     if len(sys.argv) > 2:
     	print('invalid path')
     	sys.exit(0)
     elif len(sys.argv) == 2:
-		sys_path = sys.argv[1]
+    	sys_path = sys.argv[1]
     elif len(sys.argv) == 1:
     	sys_path = '.'
     elif len(sys.argv) == 0:
